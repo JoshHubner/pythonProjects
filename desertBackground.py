@@ -1,6 +1,16 @@
+#PROGRAMMERS:      JOSH HUBNER, JACOB ROMEO, MATTHEW DIELMAN, KATELYNN SILVANO
+#PROGRAM NAME:     DESERT BACKGROUND
+#DATE:             4/9/2019
+#PROGRAM PURPOSE:  TO DRAW A DESERT BACKGROUND USING TURTLE GRAPHICS
+################################################################################
+# DEFINING THE MAIN FUNCTION
+# THIS CALLS ALL THE OTHER FUNCTIONS AS WELL AS POSITIONING EACH FUNCTION
 def main():
 	import turtle;
+	import random;
 	drawSky();
+	turtle.goto(-200, 200);
+	drawCloud();
 	drawSand();
 	drawHorRoad();
 	turtle.goto(-75, -300);
@@ -52,15 +62,19 @@ def main():
 	drawSmallCactus();
 	turtle.goto(-145,5);
 	drawSmallCactus();
-	turtle.goto(-110,-2);
+	turtle.goto(-108,-2);
 	drawSmallCactus();
 	turtle.goto(-70,-10);
-	drawSmallCactus();
+	drawSmallCactus();			
 	turtle.goto(240,0);
 	drawSmallCactus();
+	turtle.goto(50, -120);
+	makeTumbleweed();
+	turtle.goto(-275, -275);
+	makeTumbleweed();
 	makeBlink();
-	
-	
+################################################################################
+# DEFINING THE "drawStopSign" FUNCTION THAT DRAWS THE OUTLINE OF A STOP SIGN
 def drawStopSign():
 	import turtle;
 	turtle.speed(0);
@@ -68,6 +82,15 @@ def drawStopSign():
 	turtle.hideturtle();
 	turtle.pendown();
 	turtle.begin_fill();
+	turtle.color("white");
+	turtle.setheading(22);
+	turtle.circle(22, steps = 8)
+	turtle.end_fill();
+	turtle.begin_fill();	
+	turtle.setheading(180);
+	turtle.forward(1);
+	turtle.setheading(90);
+	turtle.forward(2);	
 	turtle.color("red");
 	turtle.setheading(22);
 	turtle.circle(20, steps = 8)
@@ -86,14 +109,16 @@ def drawStopSign():
 	turtle.forward(62);
 	turtle.color("white");
 	turtle.penup();
-	
+################################################################################
+# DEFINING THE "makeStopStop" FUNCTION THAT WRITES STOP ON A STOP SIGN
 def makeStopStop():
 	import turtle;
 	turtle.speed(0);
 	turtle.pendown();
 	turtle.write("STOP", font = ("Times", 9, "bold"));
 	turtle.penup();
-
+################################################################################
+# DEFINING THE "drawCactus" FUNCTION THAT DRAWS A CACTUS
 def drawCactus():
 	import turtle;
 	turtle.speed(0);
@@ -121,17 +146,23 @@ def drawCactus():
 	turtle.setheading(90);
 	turtle.forward(15);
 	turtle.penup();
-
+################################################################################
+# DEFINING THE "drawSky" FUNCTION THAT SETS THE BACKGROUND AS BLUE AND SIZES THE DISPLAY
 def drawSky():
 	import turtle;
-	turtle.bgcolor("blue");
-
+	#ESTABLISHING SCREEN SIZE
+	turtle.setup(700, 600);
+	turtle.bgcolor("#7e6fde");
+	turtle.penup();
+	turtle.hideturtle();
+################################################################################
+# DEFINING THE "drawSand" FUNCTION THAT DRAWS THE SAND
 def drawSand():
 	import turtle;
 	turtle.speed(0);
 	turtle.penup();
 	turtle.goto(-500, 25);
-	turtle.color("tan");
+	turtle.color("#d9bb43");
 	turtle.pendown();
 	turtle.begin_fill();
 	turtle.setheading(0);
@@ -144,7 +175,8 @@ def drawSand():
 	turtle.forward(1000);
 	turtle.end_fill();
 	turtle.penup();
-	
+################################################################################	
+# DEFINING THE "drawHorRoad" FUNCTION THAT DRAWS THE HORIZONTAL ROAD
 def drawHorRoad():
 	import turtle;
 	turtle.speed(0);
@@ -164,7 +196,8 @@ def drawHorRoad():
 	turtle.forward(70);
 	turtle.end_fill();
 	turtle.penup();
-
+################################################################################
+# DEFINING THE "drawHorRoadLines" FUNCTION THAT DRAWS THE HORIZONTAL ROAD LINES
 def drawHorRoadLines():
 	import turtle;
 	turtle.speed(0);
@@ -223,7 +256,8 @@ def drawHorRoadLines():
 	turtle.pendown();
 	turtle.forward(25);
 	turtle.penup();
-
+################################################################################
+# DEFINING THE "drawVertRoad" FUNCTION THAT DRAWS A VERTICAL ROAD
 def drawVertRoad():
 	import turtle;
 	turtle.speed(0);
@@ -241,7 +275,8 @@ def drawVertRoad():
 	turtle.forward(70);
 	turtle.end_fill();
 	turtle.penup();
-
+################################################################################
+# DEFINING THE "drawVertRoadLines" FUNCTION THAT DRAWS THE VERTICAL ROAD LINES
 def drawVertRoadLines():
 	import turtle;
 	turtle.speed(0);
@@ -267,7 +302,8 @@ def drawVertRoadLines():
 	turtle.pendown();
 	turtle.forward(25);
 	turtle.penup();
-	
+################################################################################	
+# DEFINING THE "drawSmallCactus" FUNCTION THAT DRAWS A SMALL CACTUS
 def drawSmallCactus():
 	import turtle;
 	turtle.speed(0);
@@ -295,7 +331,8 @@ def drawSmallCactus():
 	turtle.setheading(90);
 	turtle.forward(10);
 	turtle.penup();
-	
+################################################################################	
+# DEFINING THE "drawHorStopSignLines" FUNCTION THAT DRAWS THE LINES ON THE ROAD FOR EACH HORIZONTAL STOP SIGN
 def drawHorStopSignLines():
 	import turtle;
 	turtle.speed(0);
@@ -306,7 +343,8 @@ def drawHorStopSignLines():
 	turtle.pendown();
 	turtle.forward(30);
 	turtle.penup();
-	
+################################################################################	
+# DEFINING THE "drawVertStopSignLines" FUNCTION THAT DRAWS THE LINES ON THE ROAD FOR EACH VERTICAL STOP SIGN
 def drawVertStopSignLines():
 	import turtle;
 	turtle.speed(0);
@@ -317,7 +355,8 @@ def drawVertStopSignLines():
 	turtle.pendown();
 	turtle.forward(30);
 	turtle.penup();
-
+################################################################################
+# DEFINING THE "drawSideStopSign" FUNCTION THAT DRAWS A SIDEWAYS STOP SIGN
 def drawSideStopSign():
 	import turtle;	
 	turtle.pendown();
@@ -334,11 +373,16 @@ def drawSideStopSign():
 	turtle.pensize(2);
 	turtle.forward(40);
 	turtle.penup();
-
+################################################################################
+# DEFINING THE "makeBlink" FUNCTION THAT MAKES THE STOP SIGNS BLINK
 def makeBlink():
 	for num in range (9999):
 		import turtle;
 		turtle.goto(14, -50);
+		turtle.setheading(180);
+		turtle.forward(1);
+		turtle.setheading(90);
+		turtle.forward(2);
 		turtle.speed(0);
 		turtle.pensize(3);
 		turtle.hideturtle();
@@ -350,6 +394,10 @@ def makeBlink():
 		turtle.end_fill();	
 		turtle.penup();
 		turtle.goto(315, -50);
+		turtle.setheading(180);
+		turtle.forward(1);
+		turtle.setheading(90);
+		turtle.forward(2);
 		turtle.pendown();
 		turtle.begin_fill();
 		turtle.color("red");
@@ -365,9 +413,55 @@ def makeBlink():
 		turtle.goto(293, -38);
 		turtle.pendown();
 		turtle.write("STOP", font = ("Times", 9, "bold"));
-		turtle.penup()
-	
-	main();
+		turtle.penup();
+################################################################################		
+def drawCloud():
+        import turtle;
+        turtle.setheading(0);
+        turtle.pendown();
+        turtle.fillcolor("white");
+        turtle.begin_fill();
+        turtle.pensize(1);
+        turtle.circle(15, 180);
+        turtle.rt(100);
+        turtle.circle(20, 150);
+        turtle.rt(100);
+        turtle.circle(30, 180);
+        turtle.rt(100);
+        turtle.circle(25, 200);
+        turtle.rt(70);
+        turtle.circle(30, 70);
+        turtle.rt(70);
+        turtle.circle(12, 120);
+        turtle.rt(30);
+        turtle.circle(7, 90);
+        turtle.end_fill();
+        turtle.penup();
+################################################################################	
+def makeTumbleweed():
+	import turtle
+	import random
+	turtle.speed(0);
+	turtle.pendown();
+	turtle.pensize(1);
+	turtle.begin_fill();
+	turtle.color("#52430a");
+	turtle.end_fill();
+	for num in range(30):
+		turtle.circle(random.randint(1, 8));
+		turtle.rt(random.randint(1, 5));
+		turtle.circle(random.randint(1, 10));
+		turtle.rt(random.randint(1, 5));
+		turtle.circle(random.randint(1, 8));
+		turtle.rt(random.randint(1, 5));
+		turtle.circle(random.randint(1, 7));
+		turtle.rt(random.randint(1, 5));
+		turtle.circle(random.randint(1, 8));
+		turtle.rt(random.randint(1, 8));
+		turtle.circle(random.randint(1, 5));
+	turtle.penup();
+################################################################################
+# CALLS THE MAIN FUNCTION	main();
 
 
 input("blahblH");
