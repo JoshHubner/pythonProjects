@@ -1,0 +1,27 @@
+def drawCactus():
+	import turtle;
+	turtle.speed(0);
+	turtle.pensize(15);
+	turtle.hideturtle();
+	turtle.pendown();
+	turtle.color("green");
+	turtle.setheading(90);
+	turtle.forward(100);
+	turtle.pensize(10);
+	turtle.setheading(270);
+	turtle.forward(60);
+	turtle.setheading(0);
+	turtle.forward(30);
+	turtle.setheading(90);
+	turtle.forward(30);
+	turtle.setheading(270);
+	turtle.forward(30);
+	turtle.setheading(180);
+	turtle.forward(30);
+	turtle.setheading(90);
+	turtle.forward(15);
+	turtle.setheading(180);
+	turtle.forward(30);
+	turtle.setheading(90);
+	turtle.forward(15);
+	turtle.penup();
